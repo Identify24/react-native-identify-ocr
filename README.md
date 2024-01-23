@@ -11,10 +11,11 @@ npm install react-native-identify-ocr
 ## Usage
 
 ```js
-import { multiply } from 'react-native-identify-ocr';
+import { processImage } from 'react-native-identify-ocr';
 
 // ...
-
+//You can use those types 
+  type IdentOcrTypes = 'FrontId' | 'BackId' | 'PassportMrzKey';
 
   React.useEffect(() => {
     const getData = async () => {
