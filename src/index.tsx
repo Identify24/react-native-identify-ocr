@@ -6,6 +6,8 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n';
 
+export type IdentOcrTypes = 'FrontId' | 'BackId' | 'PassportMrzKey';
+
 const IdentifyOcr = NativeModules.IdentifyOcr
   ? NativeModules.IdentifyOcr
   : new Proxy(
@@ -17,6 +19,9 @@ const IdentifyOcr = NativeModules.IdentifyOcr
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return IdentifyOcr.multiply(a, b);
+export async function processImage(
+  base64Image: string,
+  type: IdentOcrTypes
+): Promise<any> {
+  return await IdentifyOcr.processImage(type, base64Image);
 }

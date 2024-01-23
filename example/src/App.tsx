@@ -1,18 +1,23 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-identify-ocr';
+import { processImage } from 'react-native-identify-ocr';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  const [result, setResult] = React.useState<String | undefined>();
 
   React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+    const getData = async () => {
+      const data: any = await processImage('some·base64·data', 'FrontId');
+      console.log(data);
 
+      setResult(data);
+    };
+    getData();
+  }, []);
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text style={{ color: 'white' }}>Result: {result?.toString()}</Text>
     </View>
   );
 }
