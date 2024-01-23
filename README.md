@@ -16,6 +16,8 @@ import { processImage } from 'react-native-identify-ocr';
 // ...
 //You can use those types 
   type IdentOcrTypes = 'FrontId' | 'BackId' | 'PassportMrzKey';
+  
+  const [result, setResult] = React.useState<String | undefined>();
 
   React.useEffect(() => {
     const getData = async () => {
