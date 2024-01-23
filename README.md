@@ -15,7 +15,23 @@ import { multiply } from 'react-native-identify-ocr';
 
 // ...
 
-const result = await multiply(3, 7);
+
+  React.useEffect(() => {
+    const getData = async () => {
+      const data: any = await processImage('some·base64·data', 'FrontId');
+      console.log(data);
+
+      setResult(data);
+    };
+    getData();
+  }, []);
+  return (
+    <View style={styles.container}>
+      <Text style={{ color: 'white' }}>Result: {result?.toString()}</Text>
+    </View>
+  );
+
+// ...
 ```
 
 ## Contributing
