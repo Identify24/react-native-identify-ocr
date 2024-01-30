@@ -34,12 +34,6 @@ class IdentifyOcr: NSObject {
                     if let error = error {
                         reject("OCR_ERROR", "Error during OCR: \(error)", nil)
                     } else {
-                        print("zelamke ")
-                        print(idInfo.idNameOcr)
-                        print(idInfo.idSurnameOcr)
-                        print(idInfo.idTcknOcr)
-                        print(idInfo.idSerialNoOcr)
-                        print("zelamke ")
                         resolve(idInfo.toDictionary())
                     }
                 }

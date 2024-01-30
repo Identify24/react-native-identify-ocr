@@ -1,23 +1,25 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { processImage } from 'react-native-identify-ocr';
+import { processImage, type IdBackData, type IdFrontData } from 'react-native-identify-ocr';
 
 export default function App() {
-  const [result, setResult] = React.useState<String | undefined>();
+  const [resultIdBack, setIdBackResult] = React.useState<IdBackData | undefined>();
+  const [resultIdFront, setIdFrontResult] = React.useState<IdFrontData | undefined>();
+
+
+
 
   React.useEffect(() => {
     const getData = async () => {
       const data: any = await processImage('some·base64·data', 'FrontId');
-      console.log(data);
-
-      setResult(data);
-    };
-    getData();
+      setIdBackResult(data)
+    }
+    getData()
   }, []);
   return (
     <View style={styles.container}>
-      <Text style={{ color: 'white' }}>Result: {result?.toString()}</Text>
+      <Text style={{ color: "white" }}>Result: {resultIdBack?.fullMrzKey}</Text>
     </View>
   );
 }
@@ -34,3 +36,5 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
 });
+
+ 

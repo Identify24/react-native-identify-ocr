@@ -1,0 +1,5 @@
+package com.identifyocr.model.enums
+
+enum class IdentityResultType{
+    NFC,FACE,CALL,CARD_PHOTO,SPEECH,SELFIE,VIDEO_RECORD,SIGNATURE,VALIDATE_ADDRESS,ALL_PROCESS_FINISHED,PREPARE
+}

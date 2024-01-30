@@ -7,6 +7,30 @@ const LINKING_ERROR =
   '- You are not using Expo Go\n';
 
 export type IdentOcrTypes = 'FrontId' | 'BackId' | 'PassportMrzKey';
+export interface IdBackData {
+  idMotherNameOcr?: string;
+  idFatherNameOcr?: string;
+  idIssuedByOcr?: string;
+  idTypeMRZ?: string;
+  idNationalityMRZ?: string;
+  idDocumentNumberMRZ?: string;
+  idTcknMRZ?: string;
+  idBirthDateMRZ?: string;
+  idGenderMRZ?: string;
+  idValidDateMRZ?: string;
+  idSurnameMRZ?: string;
+  idNameMRZ?: string;
+  fullMrzKey?: string;
+}
+
+export interface IdFrontData {
+  idTcknOcr?: string;
+  idNameOcr?: string;
+  idSurnameOcr?: string;
+  idBirthDateOcr?: string;
+  idSerialNoOcr?: string;
+  idValidUntilOcr?: string;
+}
 
 const IdentifyOcr = NativeModules.IdentifyOcr
   ? NativeModules.IdentifyOcr
